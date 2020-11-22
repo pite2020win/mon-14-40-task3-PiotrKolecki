@@ -1,0 +1,61 @@
+{
+    "students": {
+        "Piotr Kolecki": {
+            "first_name": "Piotr",
+            "last_name": "Kolecki",
+            "full_name": "Piotr Kolecki",
+            "marks": {
+                "PiTE": [
+                    5,
+                    3,
+                    2,
+                    3
+                ]
+            },
+            "attendance": {
+                "02-11-2020": true,
+                "09-11-2020": true,
+                "16-11-2020": true,
+                "23-11-2020": true
+            }
+        },
+        "Jack Sassin": {
+            "first_name": "Jack",
+            "last_name": "Sassin",
+            "full_name": "Jack Sassin",
+            "marks": {
+                "MoneyManagement": [
+                    2
+                ],
+                "PiTE": [
+                    2
+                ]
+            },
+            "attendance": {
+                "09.11.2020": false
+            }
+        },
+        "Janusz Gajos": {
+            "first_name": "Janusz",
+            "last_name": "Gajos",
+            "full_name": "Janusz Gajos",
+            "marks": {
+                "PiTE": [
+                    5
+                ]
+            },
+            "attendance": {
+                "09.11.2020": false,
+                "16.11.2020": true
+            }
+        },
+        "Jeb Acpis": {
+            "first_name": "Jeb",
+            "last_name": "Acpis",
+            "full_name": "Jeb Acpis",
+            "marks": {},
+            "attendance": {}
+        }
+    },
+    "class_name": "1A"
+}
