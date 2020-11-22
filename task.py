@@ -40,6 +40,23 @@ class School:
             self.school_name, subject, school_subject_mean))
         return school_subject_mean
 
+    def get_all_students(self):
+        all_students = []
+        for curr_class in self.classes:
+            all_students.extend(list(self.classes[curr_class].students.values()))
+        return all_students
+    
+    def get_all_grades(self):
+        all_grades = {}
+        for curr_class in self.classes:
+            for curr_stud in self.classes[curr_class].students:
+                for subject in self.classes[curr_class].students[curr_stud].marks:
+                    if(subject in all_grades):
+                        all_grades[subject] += self.classes[curr_class].students[curr_stud].marks[subject]
+                    else:
+                        all_grades[subject] = self.classes[curr_class].students[curr_stud].marks[subject]
+        return all_grades
+
     def to_json(self):
         classes_json = {}
         for x in self.classes:
@@ -110,7 +127,7 @@ class ClassRegister:
             "students": students_json,
             "class_name": self.class_name
         }
-        return class_register_json
+        return str(class_register_json)
 
     def __repr__(self):
         return self.to_json()
@@ -147,11 +164,11 @@ class Student:
         # without dict(...) it shared data across all registers
         self.marks = dict(marks)
         for x in self.marks:
-            marks[x] = tuple(marks[x])
+            self.marks[x] = tuple(marks[x])
         self.attendance = dict(attendance)
 
     def __str__(self):
-        return f"{self.full_name}: {self.marks}: {self.attendance}"
+        return f"{self.full_name}, Marks: {self.marks}, Attendance: {self.attendance}"
 
     def to_json(self):
         student_json = {
@@ -161,7 +178,7 @@ class Student:
             "marks": self.marks,
             "attendance": self.attendance
         }
-        return student_json
+        return str(student_json)
 
     def __repr__(self):
         return self.to_json()
@@ -251,3 +268,6 @@ if __name__ == "__main__":
     # final print
     print(School_of_good_code)
     print(School_of_importers)
+
+    logging.info(f"get all students: {School_of_good_code.get_all_students()}")
+    logging.info(f"get all grades: {School_of_good_code.get_all_grades()}")
